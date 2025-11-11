@@ -31,8 +31,8 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      content: 'contacto@boceto.com',
-      link: 'mailto:contacto@boceto.com',
+      content: 'boceto.asociados@gmail.com',
+      link: 'mailto:boceto.asociados@gmail.com',
       color: 'from-accent to-orange-500',
     },
     {
@@ -198,7 +198,7 @@ export function Contact() {
               <div className="relative w-full h-[400px] rounded-xl overflow-hidden bg-gray-100">
                 {/* Mapa iframe de Google Maps */}
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5!2d-73.36!3d5.53!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzEnNTIuOCJOIDczwrAyMSczNi4wIlc!5e0!3m2!1sen!2sco!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8!2d-73.3678!3d5.5353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzInMDcuMSJOIDczwrAyMicwNC4xIlc!5e0!3m2!1ses!2sco!4v1234567890"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -206,6 +206,7 @@ export function Contact() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="rounded-xl"
+                  title="Ubicación Boceto Arquitectos - Cl. 32 #8-09, Tunja, Boyacá"
                 />
               </div>
               <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200">

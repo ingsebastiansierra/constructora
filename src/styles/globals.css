@@ -23,3 +23,8 @@
   --color-ring: 20 20 20;
   --radius: 0.5rem;
 }
+
+body, html, #root {
+  background-color: white !important;
+  color: black !important;
+}

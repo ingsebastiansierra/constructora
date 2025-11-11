@@ -105,11 +105,11 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contacto@boceto.com"
+                  href="mailto:boceto.asociados@gmail.com"
                   className="flex items-start space-x-3 text-sm text-foreground/70 hover:text-foreground transition-colors group"
                 >
                   <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span>contacto@boceto.com</span>
+                  <span>boceto.asociados@gmail.com</span>
                 </a>
               </li>
               <li>
