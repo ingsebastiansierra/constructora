@@ -10,6 +10,10 @@ export function Contact() {
     name: '',
     email: '',
     phone: '',
+    projectType: '',
+    budget: '',
+    location: '',
+    timeline: '',
     message: '',
   });
 
@@ -17,7 +21,7 @@ export function Contact() {
     e.preventDefault();
     // Aquí iría la lógica de envío del formulario
     console.log('Form submitted:', formData);
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+    alert('¡Gracias por tu interés! Nos pondremos en contacto contigo en las próximas 24 horas.');
   };
 
   const contactInfo = [
@@ -116,72 +120,276 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl mb-6 text-foreground font-bold">Envíanos un Mensaje</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block mb-2 text-sm text-foreground/70 font-medium">
-                    Nombre Completo
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Juan Pérez"
-                    required
-                    className="bg-gray-50 border-gray-300"
-                  />
+            <div style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              borderRadius: '24px',
+              padding: '40px',
+              boxShadow: '0 20px 60px rgba(102, 126, 234, 0.4)',
+            }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                marginBottom: '24px',
+              }}>
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                  <Send style={{ width: '24px', height: '24px', color: 'white' }} />
                 </div>
-                <div>
-                  <label htmlFor="email" className="block mb-2 text-sm text-foreground/70 font-medium">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="juan@ejemplo.com"
-                    required
-                    className="bg-gray-50 border-gray-300"
-                  />
+                <h3 style={{
+                  fontSize: '28px',
+                  fontWeight: '700',
+                  color: 'white',
+                  margin: 0,
+                }}>
+                  Cotiza tu Proyecto
+                </h3>
+              </div>
+              
+              <p style={{
+                color: 'rgba(255, 255, 255, 0.9)',
+                marginBottom: '32px',
+                fontSize: '16px',
+                lineHeight: '1.6',
+              }}>
+                Completa el formulario y recibe una propuesta personalizada en 24 horas
+              </p>
+
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                {/* Nombre y Email */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
+                      Nombre Completo *
+                    </label>
+                    <Input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Tu nombre"
+                      required
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        border: 'none',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        fontSize: '15px',
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
+                      Email *
+                    </label>
+                    <Input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="tu@email.com"
+                      required
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        border: 'none',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        fontSize: '15px',
+                      }}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="phone" className="block mb-2 text-sm text-foreground/70 font-medium">
-                    Teléfono
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="3001234567"
-                    required
-                    className="bg-gray-50 border-gray-300"
-                  />
+
+                {/* Teléfono y Tipo de Proyecto */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
+                      Teléfono / WhatsApp *
+                    </label>
+                    <Input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="3001234567"
+                      required
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        border: 'none',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        fontSize: '15px',
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
+                      Tipo de Proyecto *
+                    </label>
+                    <select
+                      value={formData.projectType}
+                      onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                      required
+                      style={{
+                        width: '100%',
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        border: 'none',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        fontSize: '15px',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <option value="">Selecciona...</option>
+                      <option value="residencial">Arquitectura Residencial</option>
+                      <option value="interiorismo">Interiorismo</option>
+                      <option value="alta-complejidad">Alta Complejidad</option>
+                      <option value="remodelacion">Remodelación</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
                 </div>
+
+                {/* Presupuesto y Ubicación */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
+                      Presupuesto Estimado
+                    </label>
+                    <select
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                      style={{
+                        width: '100%',
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        border: 'none',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        fontSize: '15px',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <option value="">Selecciona...</option>
+                      <option value="50-100">$50M - $100M</option>
+                      <option value="100-200">$100M - $200M</option>
+                      <option value="200-500">$200M - $500M</option>
+                      <option value="500+">Más de $500M</option>
+                      <option value="consultar">Por consultar</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
+                      Ubicación del Proyecto
+                    </label>
+                    <Input
+                      type="text"
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      placeholder="Ciudad, Departamento"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        border: 'none',
+                        padding: '12px 16px',
+                        borderRadius: '12px',
+                        fontSize: '15px',
+                      }}
+                    />
+                  </div>
+                </div>
+
+                {/* Timeline */}
                 <div>
-                  <label htmlFor="message" className="block mb-2 text-sm text-foreground/70 font-medium">
-                    Mensaje
+                  <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
+                    ¿Cuándo deseas iniciar?
+                  </label>
+                  <select
+                    value={formData.timeline}
+                    onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                    style={{
+                      width: '100%',
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      border: 'none',
+                      padding: '12px 16px',
+                      borderRadius: '12px',
+                      fontSize: '15px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <option value="">Selecciona...</option>
+                    <option value="inmediato">Inmediatamente</option>
+                    <option value="1-3-meses">En 1-3 meses</option>
+                    <option value="3-6-meses">En 3-6 meses</option>
+                    <option value="6+-meses">Más de 6 meses</option>
+                    <option value="explorando">Solo estoy explorando</option>
+                  </select>
+                </div>
+
+                {/* Mensaje */}
+                <div>
+                  <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
+                    Cuéntanos sobre tu proyecto *
                   </label>
                   <Textarea
-                    id="message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Cuéntanos sobre tu proyecto..."
+                    placeholder="Describe tu visión, necesidades específicas, metraje aproximado, etc..."
                     required
-                    rows={5}
-                    className="bg-gray-50 border-gray-300"
+                    rows={4}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      border: 'none',
+                      padding: '12px 16px',
+                      borderRadius: '12px',
+                      fontSize: '15px',
+                      resize: 'vertical',
+                    }}
                   />
                 </div>
-                <Button
+
+                <button
                   type="submit"
-                  className="w-full bg-foreground text-white hover:bg-foreground/90 shadow-lg hover:shadow-2xl transition-all duration-300 font-semibold"
+                  style={{
+                    width: '100%',
+                    background: 'white',
+                    color: '#667eea',
+                    border: 'none',
+                    padding: '16px',
+                    borderRadius: '12px',
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+                  }}
                 >
-                  <Send className="w-4 h-4 mr-2" />
-                  Enviar Mensaje
-                </Button>
+                  <Send style={{ width: '20px', height: '20px' }} />
+                  Solicitar Cotización
+                </button>
+
+                <p style={{
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  fontSize: '13px',
+                  textAlign: 'center',
+                  margin: '8px 0 0 0',
+                }}>
+                  🔒 Tus datos están protegidos y serán tratados con confidencialidad
+                </p>
               </form>
             </div>
           </motion.div>

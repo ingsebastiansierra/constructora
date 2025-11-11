@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useRef, useEffect } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { StatCounter } from './StatCounter';
 
 export function Hero() {
   const ref = useRef(null);
@@ -73,23 +73,16 @@ export function Hero() {
             Transformamos tus ideas en espacios arquitectónicos innovadores y sostenibles
           </motion.p>
 
-          {/* Stats */}
+          {/* Stats with Counter */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex gap-8"
           >
-            {[
-              { value: '15+', label: 'Años' },
-              { value: '200+', label: 'Proyectos' },
-              { value: '100%', label: 'Satisfacción' },
-            ].map((stat, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/30">
-                <div className="text-3xl sm:text-4xl text-white font-bold mb-1">{stat.value}</div>
-                <div className="text-sm text-white font-medium">{stat.label}</div>
-              </div>
-            ))}
+            <StatCounter value={15} suffix="+" label="Años" />
+            <StatCounter value={200} suffix="+" label="Proyectos" />
+            <StatCounter value={100} suffix="%" label="Satisfacción" />
           </motion.div>
         </div>
       </motion.div>

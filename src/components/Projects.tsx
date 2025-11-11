@@ -15,40 +15,46 @@ export function Projects() {
 
   const projects = [
     {
-      title: 'Torre Residencial Moderna',
+      title: 'Villa Moderna Minimalista',
       category: 'Residencial',
-      image: 'https://images.unsplash.com/photo-1636884741166-6c1d4be12da8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwYXJjaGl0ZWN0dXJlJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzYyNDk4Njc3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      description: 'Edificio de 15 pisos con diseño vanguardista',
+      type: 'image',
+      media: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+      description: 'Casa de lujo con diseño contemporáneo y vistas panorámicas',
     },
     {
-      title: 'Proyecto Urbano Sostenible',
+      title: 'Recorrido Arquitectónico',
+      category: 'Residencial',
+      type: 'video',
+      media: '/assets/videos/fondoprincipal.mp4',
+      description: 'Tour virtual de residencia moderna',
+    },
+    {
+      title: 'Torre Corporativa Sostenible',
       category: 'Comercial',
-      image: 'https://images.unsplash.com/photo-1650630718105-497674381f3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBzaXRlfGVufDF8fHx8MTc2MjU5NDg2Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      description: 'Complejo comercial eco-friendly',
+      type: 'image',
+      media: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+      description: 'Edificio inteligente con certificación LEED',
     },
     {
-      title: 'Centro de Diseño Arquitectónico',
-      category: 'Institucional',
-      image: 'https://images.unsplash.com/photo-1721244653757-b76cc4679dfb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmFsJTIwYmx1ZXByaW50JTIwZGVzaWdufGVufDF8fHx8MTc2MjU5MzUxNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      description: 'Espacio innovador para creativos',
-    },
-    {
-      title: 'Residencia de Lujo',
+      title: 'Casa Contemporánea',
       category: 'Residencial',
-      image: 'https://images.unsplash.com/photo-1581784878214-8d5596b98a01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBpbnRlcmlvciUyMGRlc2lnbnxlbnwxfHx8fDE3NjI2MTM1NjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      description: 'Villa contemporánea con acabados premium',
+      type: 'image',
+      media: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+      description: 'Diseño minimalista con espacios abiertos',
     },
     {
-      title: 'Edificio Corporativo',
-      category: 'Corporativo',
-      image: 'https://images.unsplash.com/photo-1653895168758-411ef6038015?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8fHx8MTc2MjU5OTgzNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      description: 'Torre de oficinas inteligente',
+      title: 'Penthouse de Lujo',
+      category: 'Residencial',
+      type: 'image',
+      media: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+      description: 'Apartamento de lujo con acabados premium',
     },
     {
-      title: 'Complejo Nocturno',
-      category: 'Mixto',
-      image: 'https://images.unsplash.com/photo-1671011778867-b5c354288129?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcmNoaXRlY3R1cmUlMjBuaWdodHxlbnwxfHx8fDE3NjI2MTYyNzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      description: 'Arquitectura iluminada nocturna',
+      title: 'Diseño de Interiores',
+      category: 'Interiorismo',
+      type: 'image',
+      media: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80',
+      description: 'Espacios interiores elegantes y funcionales',
     },
   ];
 
@@ -86,8 +92,8 @@ export function Projects() {
               onHoverEnd={() => setHoveredIndex(null)}
               className="group relative bg-white border-2 border-gray-200 rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-shadow"
             >
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
+              {/* Media Container */}
+              <div className="relative h-64 overflow-hidden bg-gray-900">
                 <motion.div
                   animate={{
                     scale: hoveredIndex === index ? 1.1 : 1,
@@ -95,11 +101,22 @@ export function Projects() {
                   transition={{ duration: 0.6 }}
                   className="w-full h-full"
                 >
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
+                  {project.type === 'video' ? (
+                    <video
+                      src={project.media}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <ImageWithFallback
+                      src={project.media}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </motion.div>
 
                 {/* Overlay */}
