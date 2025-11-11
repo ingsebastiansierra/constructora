@@ -1,11 +1,13 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { StatCounter } from './StatCounter';
 
 export function Hero() {
   const ref = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
@@ -15,30 +17,56 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   useEffect(() => {
-    // Forzar la reproducción del video cuando el componente se monta
-    if (videoRef.current) {
+    // Cargar el video después de que la página esté lista
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Forzar la reproducción del video cuando esté listo
+    if (videoRef.current && shouldLoadVideo) {
       videoRef.current.play().catch((error) => {
         console.log('Autoplay prevented:', error);
       });
     }
-  }, []);
+  }, [shouldLoadVideo]);
 
   return (
     <section id="home" ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background with Parallax */}
       <motion.div style={{ y }} className="absolute inset-0 w-full h-full">
-        {/* Video de fondo */}
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          style={{ filter: 'brightness(0.8) contrast(1.2)' }}
-        >
-          <source src="/assets/videos/fondoprincipal.mp4" type="video/mp4" />
-        </video>
+        {/* Imagen de fondo estática (siempre visible) */}
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=60)',
+            filter: 'brightness(0.7) contrast(1.2)',
+          }}
+        />
+        
+        {/* Video de fondo (carga después) */}
+        {shouldLoadVideo && (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            onCanPlay={() => setVideoLoaded(true)}
+            className="w-full h-full object-cover absolute inset-0"
+            style={{ 
+              filter: 'brightness(0.7) contrast(1.2)',
+              opacity: videoLoaded ? 1 : 0,
+              transition: 'opacity 1.5s ease-in-out'
+            }}
+          >
+            <source src="/assets/videos/fondoprincipal.mp4" type="video/mp4" />
+          </video>
+        )}
         
         {/* Overlay oscuro para efecto nocturno */}
         <div className="absolute inset-0 bg-black/40 z-10" />

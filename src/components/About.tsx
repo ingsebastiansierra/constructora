@@ -72,12 +72,13 @@ export function About() {
             transition={{ duration: 0.8 }}
             className="relative pb-12 sm:pb-16 lg:pb-0"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-200">
               <img
                 src="/assets/img/boceto.png"
                 alt="Boceto Arquitectos - Diseño Moderno"
                 className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             

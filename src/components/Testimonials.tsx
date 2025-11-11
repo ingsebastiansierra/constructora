@@ -142,6 +142,8 @@ export function Testimonials() {
                     src={testimonial.image}
                     alt={testimonial.name}
                     className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover ring-4 ring-yellow-400/30 flex-shrink-0 shadow-lg"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white" />
                 </div>
