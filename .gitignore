@@ -28,3 +28,6 @@ build
 
 # Vercel
 .vercel
+
+# Keep assets in root for development
+# but they're copied to public for production
