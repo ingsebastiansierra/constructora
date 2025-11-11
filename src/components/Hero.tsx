@@ -50,14 +50,14 @@ export function Hero() {
       {/* Contenido Hero - Alineado a la izquierda */}
       <motion.div 
         style={{ opacity }}
-        className="relative z-20 max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 w-full"
+        className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 w-full"
       >
         <div className="max-w-2xl">
           <motion.h1
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl lg:text-7xl mb-6 font-bold text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 font-bold text-white leading-tight"
             style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}
           >
             Construyendo el Futuro
@@ -67,7 +67,7 @@ export function Hero() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl sm:text-2xl text-white mb-8 font-light"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 sm:mb-8 font-light"
             style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}
           >
             Transformamos tus ideas en espacios arquitectónicos innovadores y sostenibles
@@ -78,7 +78,7 @@ export function Hero() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex gap-8"
+            className="flex flex-wrap gap-4 sm:gap-6 md:gap-8"
           >
             <StatCounter value={15} suffix="+" label="Años" />
             <StatCounter value={200} suffix="+" label="Proyectos" />
@@ -93,9 +93,9 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce bg-white/20 backdrop-blur-sm rounded-full p-3 shadow-lg border-2 border-white/50 hover:bg-white/30 transition-all"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce bg-white/20 backdrop-blur-sm rounded-full p-2 sm:p-3 shadow-lg border-2 border-white/50 hover:bg-white/30 transition-all"
       >
-        <ChevronDown className="w-8 h-8 text-white" />
+        <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
       </motion.a>
     </section>
   );

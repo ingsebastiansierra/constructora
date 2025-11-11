@@ -20,9 +20,9 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gray-50 border-t-2 border-gray-200 py-16 px-4 sm:px-6 lg:px-8">
+    <footer className="relative bg-gray-50 border-t-2 border-gray-200 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -133,17 +133,17 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h3 className="text-lg mb-4 text-foreground font-bold">Newsletter</h3>
-            <p className="text-sm text-foreground/70 mb-4">
+            <h3 className="text-base sm:text-lg mb-3 sm:mb-4 text-foreground font-bold">Newsletter</h3>
+            <p className="text-xs sm:text-sm text-foreground/70 mb-3 sm:mb-4">
               Suscríbete para recibir novedades sobre nuestros proyectos
             </p>
             <div className="flex space-x-2">
               <input
                 type="email"
                 placeholder="Tu email"
-                className="flex-1 px-4 py-2 bg-white border-2 border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                className="flex-1 px-3 sm:px-4 py-2 bg-white border-2 border-gray-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary min-w-0"
               />
-              <button className="px-4 py-2 bg-foreground rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+              <button className="px-3 sm:px-4 py-2 bg-foreground rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex-shrink-0">
                 <Mail className="w-4 h-4 text-white" />
               </button>
             </div>
@@ -156,12 +156,12 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+          className="pt-6 sm:pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0"
         >
-          <p className="text-sm text-foreground/60 text-center md:text-left">
+          <p className="text-xs sm:text-sm text-foreground/60 text-center md:text-left px-2">
             © {currentYear} Boceto Arquitectos + Asociados. Todos los derechos reservados.
           </p>
-          <div className="flex space-x-6 text-sm text-foreground/60">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-foreground/60">
             <a href="#" className="hover:text-foreground transition-colors">Privacidad</a>
             <a href="#" className="hover:text-foreground transition-colors">Términos</a>
             <a href="#" className="hover:text-foreground transition-colors">Cookies</a>

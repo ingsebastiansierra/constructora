@@ -37,12 +37,12 @@ export function StatCounter({ value, suffix = '', label, duration = 2 }: StatCou
   }, [count, value, duration]);
 
   return (
-    <div ref={ref} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/30">
-      <div className="text-3xl sm:text-4xl text-white font-bold mb-1">
+    <div ref={ref} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/30 min-w-[90px] sm:min-w-[110px]">
+      <div className="text-2xl sm:text-3xl md:text-4xl text-white font-bold mb-1">
         <motion.span>{rounded}</motion.span>
         {suffix}
       </div>
-      <div className="text-sm text-white font-medium">{label}</div>
+      <div className="text-xs sm:text-sm text-white font-medium">{label}</div>
     </div>
   );
 }

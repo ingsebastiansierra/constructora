@@ -59,7 +59,7 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" ref={ref} className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
+    <section id="projects" ref={ref} className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
 
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -69,18 +69,18 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 font-bold text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 font-bold text-foreground">
             Proyectos Destacados
           </h2>
-          <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto px-4">
             Cada proyecto es una obra maestra que combina innovación, funcionalidad y estética
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -93,7 +93,7 @@ export function Projects() {
               className="group relative bg-white border-2 border-gray-200 rounded-xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-shadow"
             >
               {/* Media Container */}
-              <div className="relative h-64 overflow-hidden bg-gray-900">
+              <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-900">
                 <motion.div
                   animate={{
                     scale: hoveredIndex === index ? 1.1 : 1,
@@ -145,11 +145,11 @@ export function Projects() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl mb-2 font-semibold text-foreground transition-colors">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl mb-2 font-semibold text-foreground transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-foreground/60 text-sm">
+                <p className="text-foreground/60 text-sm sm:text-base">
                   {project.description}
                 </p>
               </div>

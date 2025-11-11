@@ -79,8 +79,8 @@ export function Services() {
   const currentService = services.find((s) => s.id === activeService) || services[0];
 
   return (
-    <section id="services" style={{ padding: '100px 0', background: 'linear-gradient(to bottom, #ffffff, #f9fafb)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+    <section id="services" style={{ padding: '60px 0', background: 'linear-gradient(to bottom, #ffffff, #f9fafb)' }} className="sm:py-20 md:py-24 lg:py-28">
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }} className="sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ export function Services() {
         </motion.div>
 
         {/* Service Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-4 mb-12 px-6 sm:px-4 max-w-4xl mx-auto">
           {services.map((service, index) => {
             const isActive = activeService === service.id;
             return (
@@ -122,15 +122,17 @@ export function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setActiveService(service.id)}
+                className="w-full sm:w-auto"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
+                  justifyContent: 'center',
                   gap: '12px',
-                  padding: '16px 24px',
-                  borderRadius: '12px',
+                  padding: '18px 28px',
+                  borderRadius: '14px',
                   border: 'none',
                   cursor: 'pointer',
-                  fontSize: '18px',
+                  fontSize: '16px',
                   fontWeight: '600',
                   transition: 'all 0.3s ease',
                   backgroundColor: isActive ? '#000000' : '#ffffff',
@@ -138,7 +140,8 @@ export function Services() {
                   boxShadow: isActive 
                     ? '0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3)' 
                     : '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-                  transform: isActive ? 'scale(1.05)' : 'scale(1)',
+                  transform: isActive ? 'scale(1.02)' : 'scale(1)',
+                  minHeight: '56px',
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
@@ -151,7 +154,7 @@ export function Services() {
                   }
                 }}
               >
-                <span style={{ display: 'flex', alignItems: 'center' }}>
+                <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
                   {service.icon}
                 </span>
                 <span>{service.title}</span>

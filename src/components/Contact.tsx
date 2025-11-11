@@ -77,7 +77,7 @@ export function Contact() {
         </motion.div>
 
         {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             return (
@@ -87,24 +87,24 @@ export function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center group cursor-pointer shadow-md hover:shadow-xl transition-shadow"
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-white border-2 border-gray-200 rounded-2xl p-6 sm:p-8 text-center group cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300"
               >
-                <div className={`w-14 h-14 mx-auto mb-4 rounded-lg bg-gradient-to-br ${info.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-7 h-7 text-white" />
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-3 sm:mb-4 rounded-full bg-gradient-to-br ${info.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <Icon className="w-7 h-7 sm:w-9 sm:h-9 text-white" />
                 </div>
-                <h3 className="text-lg mb-2 text-foreground/60 font-medium">{info.title}</h3>
+                <h3 className="text-base sm:text-lg mb-2 text-foreground/60 font-medium">{info.title}</h3>
                 {info.link ? (
                   <a
                     href={info.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground font-semibold hover:text-foreground/80 transition-colors"
+                    className="text-sm sm:text-base text-foreground font-semibold hover:text-foreground/80 transition-colors break-words"
                   >
                     {info.content}
                   </a>
                 ) : (
-                  <p className="text-foreground font-semibold">{info.content}</p>
+                  <p className="text-sm sm:text-base text-foreground font-semibold">{info.content}</p>
                 )}
               </motion.div>
             );
@@ -164,7 +164,7 @@ export function Contact() {
 
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 {/* Nombre y Email */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth < 640 ? '1fr' : '1fr 1fr', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
                       Nombre Completo *
@@ -181,6 +181,7 @@ export function Contact() {
                         padding: '12px 16px',
                         borderRadius: '12px',
                         fontSize: '15px',
+                        width: '100%',
                       }}
                     />
                   </div>
@@ -200,13 +201,14 @@ export function Contact() {
                         padding: '12px 16px',
                         borderRadius: '12px',
                         fontSize: '15px',
+                        width: '100%',
                       }}
                     />
                   </div>
                 </div>
 
                 {/* Teléfono y Tipo de Proyecto */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth < 640 ? '1fr' : '1fr 1fr', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
                       Teléfono / WhatsApp *
@@ -223,6 +225,7 @@ export function Contact() {
                         padding: '12px 16px',
                         borderRadius: '12px',
                         fontSize: '15px',
+                        width: '100%',
                       }}
                     />
                   </div>
@@ -255,7 +258,7 @@ export function Contact() {
                 </div>
 
                 {/* Presupuesto y Ubicación */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth < 640 ? '1fr' : '1fr 1fr', gap: '16px' }}>
                   <div>
                     <label style={{ display: 'block', marginBottom: '8px', color: 'white', fontSize: '14px', fontWeight: '500' }}>
                       Presupuesto Estimado
@@ -296,6 +299,7 @@ export function Contact() {
                         padding: '12px 16px',
                         borderRadius: '12px',
                         fontSize: '15px',
+                        width: '100%',
                       }}
                     />
                   </div>

@@ -17,7 +17,7 @@ export function WhatsAppButton() {
   };
 
   return (
-    <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 9999 }}>
+    <div style={{ position: 'fixed', bottom: '16px', right: '16px', zIndex: 9999 }}>
       {/* Chat Popup */}
       {isOpen && (
         <motion.div
@@ -26,10 +26,10 @@ export function WhatsAppButton() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           style={{
             position: 'absolute',
-            bottom: '80px',
+            bottom: '75px',
             right: '0',
             width: '320px',
-            maxWidth: '90vw',
+            maxWidth: 'calc(100vw - 32px)',
             zIndex: 10000,
             backgroundColor: '#ffffff',
             borderRadius: '16px',
