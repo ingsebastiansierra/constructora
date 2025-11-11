@@ -17,56 +17,45 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   useEffect(() => {
-    // Cargar el video después de que la página esté lista
-    const timer = setTimeout(() => {
-      setShouldLoadVideo(true);
-    }, 100);
-
-    return () => clearTimeout(timer);
+    // Cargar el video inmediatamente
+    setShouldLoadVideo(true);
   }, []);
 
   useEffect(() => {
     // Forzar la reproducción del video cuando esté listo
     if (videoRef.current && shouldLoadVideo) {
-      videoRef.current.play().catch((error) => {
-        console.log('Autoplay prevented:', error);
-      });
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log('Autoplay prevented:', error);
+        });
+      }
     }
   }, [shouldLoadVideo]);
 
   return (
     <section id="home" ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background with Parallax */}
-      <motion.div style={{ y }} className="absolute inset-0 w-full h-full">
-        {/* Imagen de fondo estática (siempre visible) */}
-        <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=60)',
-            filter: 'brightness(0.7) contrast(1.2)',
+      <motion.div style={{ y }} className="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        {/* Video de fondo con poster */}
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
+          onLoadedData={() => setVideoLoaded(true)}
+          className="w-full h-full object-cover"
+          style={{ 
+            filter: 'brightness(0.8) contrast(1.2)',
+            opacity: videoLoaded ? 1 : 0.3,
+            transition: 'opacity 0.8s ease-in-out'
           }}
-        />
-        
-        {/* Video de fondo (carga después) */}
-        {shouldLoadVideo && (
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            onCanPlay={() => setVideoLoaded(true)}
-            className="w-full h-full object-cover absolute inset-0"
-            style={{ 
-              filter: 'brightness(0.7) contrast(1.2)',
-              opacity: videoLoaded ? 1 : 0,
-              transition: 'opacity 1.5s ease-in-out'
-            }}
-          >
-            <source src="/assets/videos/fondoprincipal.mp4" type="video/mp4" />
-          </video>
-        )}
+        >
+          <source src="/assets/videos/fondoprincipal.mp4" type="video/mp4" />
+        </video>
         
         {/* Overlay oscuro para efecto nocturno */}
         <div className="absolute inset-0 bg-black/40 z-10" />
